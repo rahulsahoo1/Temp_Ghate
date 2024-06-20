@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form with Map Input Field</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+    <style>
+        .contact-section {
+            padding: 80px 0;
+        }
+        .contact-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        .contact_us_form {
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .input-group:hover,
+        input[type="text"]:hover {
+            transition: border-color 0.3s ease;
+            border: 1.5px solid #11b103;
+        }
+        .btn-primary {
+            background-color: #11b103;
+            border-color: #11b103;
+        }
+        .contact-info__icon {
+            font-size: 24px;
+            margin-right: 20px;
+        }
+        .contact-info h3 {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        .contact-info p {
+            font-size: 16px;
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+<section class="contact-section section_padding">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="contact-title">Get in Touch</h2>
+            </div>
+            <div class="col-lg-8">
+                <div id="apply_form" class="contact_us_form white-bg">
+                    <h4>Contact us</h4>
+                    <form action="#">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Enter Your name">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Enter your Email">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Enter subject">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="text" id="map" class="form-control" placeholder="Search for your location">
+                                </div>
+                                <div id="map-canvas" style="height: 300px;"></div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <textarea id="" class="form-control" placeholder="Enter your Message"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12 mt-3">
+                                <div class="form-group">
+                                    <button class="btn btn-primary btn-block" type="submit">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="media contact-info">
+                    <span class="contact-info__icon"><i class="fas fa-home"></i></span>
+                    <div class="media-body">
+                        <h3>Location</h3>
+                        <p>Bangalore, India</p>
+                    </div>
+                </div>
+                <div class="media contact-info">
+                    <span class="contact-info__icon"><i class="fas fa-phone"></i></span>
+                    <div class="media-body">
+                        <h3>8296595546</h3>
+                        <p>Mon to Fri 9am to 6pm</p>
+                    </div>
+                </div>
+                <div class="media contact-info">
+                    <span class="contact-info__icon"><i class="fas fa-envelope"></i></span>
+                    <div class="media-body">
+                        <h3>Sharath@gmail.com</h3>
+                        <p>Send us your query anytime!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function initialize() {
+        var input = document.getElementById('map');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+</body>
+</html>
